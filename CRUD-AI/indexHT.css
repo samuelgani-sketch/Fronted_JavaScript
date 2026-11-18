@@ -1,0 +1,181 @@
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 0 16px;
+  background: #eef3f0;
+  color: #1d2b25;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  font: inherit;
+  border: 1px solid #9bb5a8;
+  border-radius: 4px;
+  background: white;
+}
+
+button {
+  padding: 10px 14px;
+  font: inherit;
+  border: none;
+  border-radius: 4px;
+  background: #2f6b4f;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #255840;
+}
+
+/* Видимая рамка при навигации с клавиатуры (Tab) */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #2f6b4f;
+  outline-offset: 2px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #c9d8d0;
+}
+
+li span {
+  flex: 1;
+  cursor: text;
+  overflow-wrap: anywhere;
+}
+
+li.done span {
+  text-decoration: line-through;
+  color: #7d9389;
+}
+
+/* Поле редактирования внутри строки */
+li.editing {
+  background: #e2ece6;
+  margin: 0 -8px;
+  padding: 10px 8px;
+  border-radius: 4px;
+}
+
+li .edit-input {
+  flex: 1;
+  padding: 6px 8px;
+}
+
+/* Кнопки действий: карандаш, корзина, сохранить, отмена */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  color: #5a7268;
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn:hover {
+  background: #d8e5dd;
+  color: #1d2b25;
+}
+
+.icon-btn.delete {
+  color: #a33;
+}
+
+.icon-btn.delete:hover {
+  background: #f3dede;
+  color: #a33;
+}
+
+.icon-btn.save {
+  background: #2f6b4f;
+  color: white;
+}
+
+.icon-btn.save:hover {
+  background: #255840;
+  color: white;
+}
+
+.empty {
+  color: #5a7268;
+  margin-top: 20px;
+}
+
+.counter {
+  color: #5a7268;
+  font-size: 0.9rem;
+}
+
+/* Всплывающее сообщение внизу экрана */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 10px 10px 16px;
+  background: #1d2b25;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  max-width: calc(100% - 32px);
+}
+
+.toast[hidden] {
+  display: none;
+}
+
+.toast button {
+  background: transparent;
+  color: #9fd6b8;
+  padding: 6px 10px;
+  text-decoration: underline;
+}
+
+.toast button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toast:not([hidden]) {
+    animation: toast-in 0.2s ease-out;
+  }
+  @keyframes toast-in {
+    from { opacity: 0; transform: translate(-50%, 8px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+  }
+}
